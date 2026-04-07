@@ -1,0 +1,41 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init (module root)
+        run: terraform init -backend=false
+
+      - name: Terraform Validate (module root)
+        run: terraform validate
+
+      - name: Terraform Init (basic example)
+        run: terraform init -backend=false
+        working-directory: examples/basic
+
+      - name: Terraform Validate (basic example)
+        run: terraform validate
+        working-directory: examples/basic
+
+      - name: Terraform Init (complete example)
+        run: terraform init -backend=false
+        working-directory: examples/complete
+
+      - name: Terraform Validate (complete example)
+        run: terraform validate
+        working-directory: examples/complete
