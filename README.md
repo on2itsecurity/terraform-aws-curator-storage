@@ -75,8 +75,8 @@ By default, the module enables cost-optimization lifecycle rules:
 
 ## Examples
 
-- [Basic](./examples/basic) - Minimal deployment with required variables only
-- [Complete](./examples/complete) - Full deployment with lifecycle, CORS, and IAM options
+- [Basic](https://github.com/on2itsecurity/terraform-aws-curator-storage/tree/main/examples/basic) - Minimal deployment with required variables only
+- [Complete](https://github.com/on2itsecurity/terraform-aws-curator-storage/tree/main/examples/complete) - Full deployment with lifecycle, CORS, and IAM options
 
 ## License
 
